@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Overdrive from 'react-overdrive';
 import { Poster } from './Movie';
 
+// Absolute paths for the TMDB API
 const POSTER_PATH = 'http://image.tmdb.org/t/p/w154';
 const BACKDROP_PATH = 'http://image.tmdb.org/t/p/w1280';
 
@@ -12,6 +13,7 @@ class MovieDetail extends Component {
 	};
 
 	async componentDidMount() {
+		// After it mounts pull the current movie from the URL match param 'id'
 		try {
 			const movieRef = await fetch(
 				`https://api.themoviedb.org/3/movie/${this.props.match.params.id}?api_key=cd4c768de3bcea71b9e323dcdbf186a7&language=en-US`,
@@ -46,6 +48,7 @@ class MovieDetail extends Component {
 
 export default MovieDetail;
 
+// Styled components
 const MovieWrapper = styled.div`
 	position: relative;
 	padding-top: 35vh;
