@@ -1,0 +1,1 @@
+A movieDB based on React used to showcase new ES6+ features, good React habbits, eslint settings, and some useful packages. Documentation to follow.
