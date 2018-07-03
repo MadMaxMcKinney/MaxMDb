@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import styled from 'styled-components';
 import Overdrive from 'react-overdrive';
 import { Poster } from './Movie';
@@ -30,18 +30,20 @@ class MovieDetail extends Component {
 	render() {
 		const { movie } = this.state;
 		return (
-			<MovieWrapper backdrop={`${BACKDROP_PATH}${movie.backdrop_path}`}>
+			<Fragment>
+				<MovieDetailHeader backdrop={`${BACKDROP_PATH}${movie.backdrop_path}`} />
 				<MovieInfo>
 					<Overdrive id={movie.id} duration="350">
 						<Poster src={`${POSTER_PATH}${movie.poster_path}`} alt={movie.title} />
 					</Overdrive>
 					<div>
-						<h1>{movie.title}</h1>
-						<h3>{movie.release_date}</h3>
-						<p>{movie.overview}</p>
+						<Title>{movie.title}</Title>
+						<BodyText>{movie.release_date}</BodyText>
+						<SubTitle>Overview</SubTitle>
+						<BodyText>{movie.overview}</BodyText>
 					</div>
 				</MovieInfo>
-			</MovieWrapper>
+			</Fragment>
 		);
 	}
 }
@@ -49,13 +51,6 @@ class MovieDetail extends Component {
 export default MovieDetail;
 
 // Styled components
-const MovieWrapper = styled.div`
-	position: relative;
-	padding-top: 35vh;
-	background: url(${props => props.backdrop}) no-repeat;
-	background-size: cover;
-`;
-
 const MovieInfo = styled.div`
 	background: #222;
 	display: flex;
@@ -70,4 +65,36 @@ const MovieInfo = styled.div`
 		position: relative;
 		top: -5rem;
 	}
+`;
+
+const MovieDetailHeader = styled.div`
+	height: 400px;
+	width: 100%;
+	display: flex;
+	background: url(${props => props.backdrop}) no-repeat;
+	background-size: cover;
+`;
+
+const Title = styled.h1`
+	color: white;
+	font-size: 24px;
+	line-height: 28px;
+`;
+
+const SubTitle = styled.h2`
+	color: white;
+	font-size: 19px;
+	line-height: 27px;
+`;
+
+const ExtraTitle = styled.h2`
+	color: white;
+	font-size: 16px;
+	line-height: 23px;
+`;
+
+const BodyText = styled.p`
+	color: #B8B8B8;
+	font-size: 16px;
+	line-height: 23px;
 `;

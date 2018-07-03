@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import Movie from './Movie';
 
+// Shows a list of movies as 'Movie' pulled from TMDb.
 class MoviesList extends Component {
 	state = {
 		movies: [],
@@ -39,4 +40,7 @@ const MovieGrid = styled.div`
 	margin: 24px;
 	grid-template-columns: repeat(6, 1fr);
 	grid-gap: 32px;
+	max-width: 1200px;
+	margin-left: auto;
+	margin-right: auto;
 `;
